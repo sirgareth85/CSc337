@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Risk Arizona - MAP</title>
+<script type="text/javascript" src="riskEngine.js"></script>
+<link href="map.css" type="text/css" rel="stylesheet" />
+<link href="attackBoard.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<button class="" onclick="clearCounties()">RESET</button>
+<div id="map" class="map">
+	<div id="Apache" class="Apache" ></div>
+	<div id="Cochise" class="Cochise" ></div>
+	<div id="Coconino" class="Coconino" ></div>
+	<div id="Gila" class="Gila" ></div>
+	<div id="Graham" class="Graham" ></div>
+	<div id="Greenlee" class="Greenlee" ></div>
+	<div id="La_Paz" class="La_Paz" ></div>
+	<div id="Maricopa" class="Maricopa" ></div>
+	<div id="Mohave" class="Mohave" ></div>
+	<div id="Navajo" class="Navajo" ></div>
+	<div id="Pima" class="Pima" ></div>
+	<div id="Pinal" class="Pinal" ></div>
+	<div id="Santa_Cruz" class="Santa_Cruz" ></div>
+	<div id="Yavapai" class="Yavapai" ></div>
+	<div id="Yuma" class="Yuma" ></div>
+	<object class="map" data="images/map/azmap.svg" type="image/svg+xml" id="azmap">	
+	</object>
+</div>
+
+<div class='attack' id="result" ></div>
+
+<button class="" onclick="endTurn()">END TURN</button>
+</body>
+<script>
+var countyList = ["Apache",
+                  "Cochise",
+                  "Coconino",
+                  "Gila",
+                  "Graham",
+                  "Greenlee",
+                  "La_Paz",
+                  "Maricopa",
+                  "Mohave",
+                  "Navajo",
+                  "Pima",
+                  "Pinal",
+                  "Santa_Cruz",
+                  "Yavapai",
+                  "Yuma"];
+var countyObjects = {Apache:["nau",2],
+			        Cochise:["nau",2],
+			        Coconino:["n",4],
+			        Gila:["n",6],
+			        Graham:["uofa",3],
+			        Greenlee:["uofa",1],
+			        La_Paz:["uofa",2],
+			        Maricopa:["n",0],
+			        Mohave:["uofa",5],
+			        Navajo:["n",0],
+			        Pima:["n",0],
+			        Pinal:["uofa",6],
+			        Santa_Cruz:["n",0],
+			        Yavapai:["uofa",4],
+			        Yuma:["n",0]};
+var attackPaths = {"Apache":[9,4,5],//0 1
+                   "Cochise":[12,10,4,5],//1 2
+                   "Coconino":[8,13,3,9],//2 3
+                   "Gila":[2,13,7,11,4,9],//3 4
+                   "Graham":[9,3,11,10,1,5,0],//4 5
+                   "Greenlee":[0,4,1],//5 6
+                   "La_Paz":[14,7,13,8],//6 7
+                   "Maricopa":[6,14,10,11,3,13],//7 8
+                   "Mohave":[6,13,2],//8 9
+                   "Navajo":[2,3,4,0],//9 10
+                   "Pima":[12,1,4,11,7,14],//10 11
+                   "Pinal":[10,4,3,7],//11 12
+                   "Santa_Cruz":[10,1],//12 13
+                   "Yavapai":[2,3,7,6,8],//13 14
+                   "Yuma":[10,7,6]};//14 15
+var player1;
+var player2;   
+var player1Turn = true;
+var currentCounty;
+//testing on loadstuff
+var map;
+var mapDoc;
+window.onload =function(){
+	map = document.getElementById("azmap");
+	mapDoc = map.contentDocument;
+	for(i=0;i<countyList.length;i++){
+		var county = mapDoc.getElementById(countyList[i]);
+		county.addEventListener("click", function(){selectCounty(this.id);}, false);
+	} 
+	clearCounties();
+};
+
+
+//end test
+
+
+function selectCounty(id){
+	//var map = document.getElementById("azmap");
+	//var mapDoc = map.contentDocument;
+	clearCounties();
+	currentCounty = id;
+	//var countyName = document.getElementById(id).value;
+	var county = mapDoc.getElementById(id);
+	if(player1Turn){
+		if(countyObjects[id][0] == "uofa"){
+	   		county.style.fill = "green";
+	   		for(i=0;i<attackPaths[id].length;i++){
+	   			var countyTarget = countyList[attackPaths[id][i]]
+				var countyIn = 
+					mapDoc.getElementById(countyTarget);
+				if(countyObjects[countyTarget][0] != "uofa"){
+					countyIn.style.fill = "#fbabab";
+					document.getElementById(countyTarget).innerHTML = 
+						"<div class='tooltip'><img src='images/target.png' style='width:50px; height:100%;'"
+						+"onclick=\"attackStart(\'"
+						+countyTarget+"\')\"><span class='tooltiptext' id=\'"
+						+countyTarget+"\'>Attack!</span></div><div>"+countyObjects[countyTarget][1]+"U</div>";	
+				}
+			}
+	   		
+		}
+		else{}
+			//TBD
+	}
+	if(!player1Turn){
+		if(countyObjects[id][0] == "nau"){
+	   		county.style.fill = "green";
+	   		for(i=0;i<attackPaths[id].length;i++){
+	   			var countyTarget = countyList[attackPaths[id][i]]
+				var countyIn = 
+					mapDoc.getElementById(countyTarget);
+				if(countyObjects[countyTarget][0] != "nau"){
+					countyIn.style.fill = "#fbabab";
+					document.getElementById(countyTarget).innerHTML = 
+						"<div class='tooltip'><img src='images/target.png' style='width:50px; height:100%;'" 
+						+"onclick=\"attackStart(\'"
+						+countyTarget+"\')\"><span class='tooltiptext' id=\'"
+						+countyTarget+"\'>Attack!</span></div><div>"+countyObjects[countyTarget][1]+"U</div>";	
+				}
+			}
+		}
+	}
+}
+
+function endTurn(){
+	player1Turn = !player1Turn;
+	clearCounties();
+}
+
+function clearCounties(){
+	for(i=0;i<countyList.length;i++){
+		var countyIn = mapDoc.getElementById(countyList[i]);
+		document.getElementById(countyList[i]).innerHTML = countyObjects[countyList[i]][1]+"U";
+		if(countyObjects[countyList[i]][0] == "uofa"){
+			countyIn.style.fill = "#7474ad";}
+		else if(countyObjects[countyList[i]][0] == "nau"){
+			countyIn.style.fill = "rgb(179, 179, 100)";}
+		else {
+			countyIn.style.fill = "#b9b9b9";}
+	}
+}
+
+function attackStart(county){
+	if (countyObjects[currentCounty][1]>1){
+		var attackingUnits = countyObjects[currentCounty][1]-1;
+		countyObjects[currentCounty][1] = 1;
+		document.getElementById("result").style.visibility = "visible";
+		
+		attack(county,attackingUnits,countyObjects[county][1]);
+	}
+	else
+		alert("Not enough Units to attack.");
+}
+	
+function callUsers(){
+	var anObj = new XMLHttpRequest();
+	anObj.open("GET", "controller.php?n='all'", true);
+	anObj.send();
+
+	anObj.onreadystatechange = function() {
+		if (anObj.readyState == 4 && anObj.status == 200) {
+			var array = JSON.parse(anObj.responseText);
+			for (i = 0; i < array.length; i++){
+				countyList.push(array[i]["county"]);
+			}
+		}
+	}
+}
+</script>
+</html>
+

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Risk Arizona</title>
+<script type="text/javascript" src="riskEngine.js"></script>
+<link href="map.css" type="text/css" rel="stylesheet" />
+<link href="attackBoard.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<button class="" onclick="clearCounties()">RESET</button>
+<div id="map" class="map">
+	<div id="Apache" class="Apache" >
+		<div id="0_num"></div>
+		<div class="tooltip">
+			<img id="0" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Cochise" class="Cochise" >
+		<div id="1_num"></div>
+		<div class="tooltip">
+			<img id="1" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Coconino" class="Coconino" >
+		<div id="2_num"></div>
+		<div class="tooltip">
+			<img id="2" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Gila" class="Gila" >
+		<div id="3_num"></div>
+		<div class="tooltip">
+			<img id="3" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Graham" class="Graham" >
+		<div id="4_num"></div>
+		<div class="tooltip">
+			<img id="4" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Greenlee" class="Greenlee" >
+		<div id="5_num"></div>
+		<div class="tooltip">
+			<img id="5" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="La_Paz" class="La_Paz" >
+		<div id="6_num"></div>
+		<div class="tooltip">
+			<img id="6" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Maricopa" class="Maricopa" >
+		<div id="7_num"></div>
+		<div class="tooltip">
+			<img id="7" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Mohave" class="Mohave" >
+		<div id="8_num"></div>
+		<div class="tooltip">
+			<img id="8" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Navajo" class="Navajo" >
+		<div id="9_num"></div>
+		<div class="tooltip">
+			<img id="9" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Pima" class="Pima" >
+		<div id="10_num"></div>
+		<div class="tooltip">
+			<img id="10" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Pinal" class="Pinal" >
+		<div id="11_num"></div>
+		<div class="tooltip">
+			<img id="11" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Santa_Cruz" class="Santa_Cruz" >
+		<div id="12_num"></div>
+		<div class="tooltip">
+			<img id="12" src="images/target.png" style="visibility: hidden;" onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Yavapai" class="Yavapai" >
+		<div id="13_num"></div>
+		<div class="tooltip">
+			<img id="13" src="images/target.png" style="visibility: hidden;"onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<div id="Yuma" class="Yuma" >
+		<div id="14_num"></div>
+		<div class="tooltip">
+			<img id="14" src="images/target.png" style="visibility: hidden;"onclick="doAction(id,value)"/>
+			<span class="tooltip"></span>
+		</div>
+	</div>
+	<object class="map" data="images/map/azmap.svg" type="image/svg+xml" id="azmap">	
+	</object>
+</div>
+<div id="attackWindow" class="modal">
+	<div class='modal-content' id="result" >
+	</div>
+</div>
+<button class="" onclick="endTurn()">END TURN</button>
+</body>
+<script>
+var countyList = ["Apache",
+                  "Cochise",
+                  "Coconino",
+                  "Gila",
+                  "Graham",
+                  "Greenlee",
+                  "La_Paz",
+                  "Maricopa",
+                  "Mohave",
+                  "Navajo",
+                  "Pima",
+                  "Pinal",
+                  "Santa_Cruz",
+                  "Yavapai",
+                  "Yuma"];
+var countyObjects = {Apache:["n",1],
+			        Cochise:["n",1],
+			        Coconino:["n",1],
+			        Gila:["n",1],
+			        Graham:["n",1],
+			        Greenlee:["n",1],
+			        La_Paz:["n",1],
+			        Maricopa:["asu",21],
+			        Mohave:["n",1],
+			        Navajo:["n",1],
+			        Pima:["uofa",21],
+			        Pinal:["n",1],
+			        Santa_Cruz:["n",1],
+			        Yavapai:["n",1],
+			        Yuma:["n",1]};
+var attackPaths = {"Apache":[9,4,5],//0 1
+                   "Cochise":[12,10,4,5],//1 2
+                   "Coconino":[8,13,3,9],//2 3
+                   "Gila":[2,13,7,11,4,9],//3 4
+                   "Graham":[9,3,11,10,1,5,0],//4 5
+                   "Greenlee":[0,4,1],//5 6
+                   "La_Paz":[14,7,13,8],//6 7
+                   "Maricopa":[6,14,10,11,3,13],//7 8
+                   "Mohave":[6,13,2],//8 9
+                   "Navajo":[2,3,4,0],//9 10
+                   "Pima":[12,1,4,11,7,14],//10 11
+                   "Pinal":[10,4,3,7],//11 12
+                   "Santa_Cruz":[10,1],//12 13
+                   "Yavapai":[2,3,7,6,8],//13 14
+                   "Yuma":[10,7,6]};//14 15
+var player1;
+var player2;   
+var player1Turn = true;
+var currentCounty;
+//testing on loadstuff
+var map;
+var mapDoc;
+var modal = document.getElementById("attackWindow");
+window.onload = function(){
+	map = document.getElementById("azmap");
+	mapDoc = map.contentDocument;
+	for(var i=0;i<countyList.length;i++){
+		var county = mapDoc.getElementById(countyList[i]);
+		county.addEventListener("click", function(){selectCounty(this.id);}, false);
+	} 
+	clearCounties();
+};
+
+
+//end test
+
+
+function selectCounty(id){
+	//var map = document.getElementById("azmap");
+	//var mapDoc = map.contentDocument;
+	clearCounties();
+	currentCounty = id;
+	//var countyName = document.getElementById(id).value;
+	var county = mapDoc.getElementById(id);
+	if(player1Turn){
+		if(countyObjects[id][0] == "uofa"){
+	   		county.style.fill = "green";
+	   		for(var i=0;i<attackPaths[id].length;i++){
+	   			var countyTarget = countyList[attackPaths[id][i]]
+				var countyIn = 
+					mapDoc.getElementById(countyTarget);
+				if(countyObjects[countyTarget][0] != "uofa"){
+					countyIn.style.fill = "#fbabab";
+					document.getElementById(attackPaths[id][i]).src = "images/target.png";
+					document.getElementById(attackPaths[id][i]).style.visibility = "visible";
+					document.getElementById(attackPaths[id][i]).value = "target"
+				}
+		
+			}
+	   		for (var i=0;i<countyList.length;i++){
+	   			if (countyObjects[countyList[i]][0] == "uofa" && countyList[i] != currentCounty) {
+					document.getElementById(i).src = "images/move.png";
+					document.getElementById(i).style.visibility = "visible";
+					document.getElementById(i).value = "move";
+				}
+	   		}
+	   		
+		}
+		else{}
+			//TBD
+	}
+	if(!player1Turn){
+		if(countyObjects[id][0] == "asu"){
+	   		county.style.fill = "green";
+	   		for(var i=0;i<attackPaths[id].length;i++){
+	   			var countyTarget = countyList[attackPaths[id][i]]
+				var countyIn = 
+					mapDoc.getElementById(countyTarget);
+				if(countyObjects[countyTarget][0] != "asu"){
+					countyIn.style.fill = "#fbabab";
+					document.getElementById(attackPaths[id][i]).src = "images/target.png";
+					document.getElementById(attackPaths[id][i]).style.visibility = "visible";
+					document.getElementById(attackPaths[id][i]).value = "target";
+				}
+			}
+	   		for (var i=0;i<countyList.length;i++){
+	   			if (countyObjects[countyList[i]][0] == "asu" && countyList[i] != currentCounty) {
+	   				document.getElementById(i).src = "images/move.png";
+					document.getElementById(i).style.visibility = "visible";
+					document.getElementById(i).value = "move";
+				}
+	   		}
+		}
+	}
+}
+
+function endTurn(){
+	player1Turn = !player1Turn;
+	clearCounties();
+}
+
+function clearCounties(){
+	for(var i=0;i<countyList.length;i++){
+		var countyIn = mapDoc.getElementById(countyList[i]);
+		document.getElementById(i+"_num").innerHTML = "<"+"<img src='images/1unit.png' style='width:10px;height:100%; !important'/>"+countyObjects[countyList[i]][1]+">";
+		document.getElementById(i).style.visibility = "hidden";
+		if(countyObjects[countyList[i]][0] == "uofa"){
+			countyIn.style.fill = "#7474ad";}
+		else if(countyObjects[countyList[i]][0] == "asu"){
+			countyIn.style.fill = "rgb(179, 179, 100)";}
+		else {
+			countyIn.style.fill = "#b9b9b9";}
+	}
+}
+function doAction(countyID,action){
+	county = countyList[countyID];
+	if(action == "target")
+		attackStart(county);
+	else if (action == "move")
+		move(county);
+}
+
+function attackStart(county){
+	if (countyObjects[currentCounty][1]>1){
+		document.getElementById("attackWindow").style.display = "block";
+		var attackingUnits = (countyObjects[currentCounty][1]-1);
+		countyObjects[currentCounty][1] = 1;
+		console.log("attackStart() currentCountyNum: "+countyObjects[currentCounty][1]);
+		attack(county,attackingUnits,countyObjects[county][1]);
+	}
+	else
+		alert("Not enough Units to attack.");
+}
+
+function move(county){
+	if (countyObjects[currentCounty][1]>1){
+		countyObjects[county][1] = countyObjects[currentCounty][1]-1;
+		countyObjects[currentCounty][1] = 1;
+		endTurn();
+	}
+}
+	
+window.onclick = function(event){
+	if (event.target == modal)
+		console.log("Battle in progress.");
+}
+	
+function callUsers(){
+	var anObj = new XMLHttpRequest();
+	anObj.open("GET", "controller.php?n='all'", true);
+	anObj.send();
+
+	anObj.onreadystatechange = function() {
+		if (anObj.readyState == 4 && anObj.status == 200) {
+			var array = JSON.parse(anObj.responseText);
+			for (var i=0; i < array.length; i++){
+				countyList.push(array[i]["county"]);
+			}
+		}
+	}
+}
+</script>
+</html>
+

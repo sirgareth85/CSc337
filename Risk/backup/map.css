@@ -1,0 +1,106 @@
+@CHARSET "ISO-8859-1";
+.map{	
+    width:584px;
+    height:100%;
+}
+
+.map :hover img {
+	cursor: crosshair;
+}
+.map :acitve img {
+	background-color:red;
+}
+
+.Apache{
+	position: absolute;
+    left: 502px;
+    top: 106px;
+    z-index: 1;
+}
+.Cochise{
+	position: absolute;
+    left: 489px;
+    top: 608px;
+    z-index: 1;
+}
+.Coconino{
+	position: absolute;
+    left: 275px;
+    top: 143px;
+    z-index: 1;
+}
+.Gila{
+	position: absolute;
+    left: 414px;
+    top: 401px;
+    z-index: 1;
+}
+.Graham{
+	position: absolute;
+    left: 459px;
+    top: 495px;
+    z-index: 1;
+}
+.Greenlee{
+	position: absolute;
+    left: 542px;
+    top: 455px;
+    z-index: 1;
+    text-align:right;
+    line-height: 80%;
+}
+.La_Paz{
+	position: absolute;
+    left: 84px;
+    top: 381px;
+    z-index: 1;
+}
+.Maricopa{
+	position: absolute;
+    left: 185px;
+    top: 448px;
+    z-index: 1;
+}
+.Mohave{
+	position: absolute;
+    left: 73px;
+    top: 177px;
+    z-index: 1;
+}
+.Navajo{
+	position: absolute;
+    left: 421px;
+    top: 203px;
+    z-index: 1;
+    }
+.Pima{
+	position: absolute;
+    left: 303px;
+    top: 584px;
+    z-index: 1;
+}
+.Pinal{
+	position: absolute;
+    left: 339px;
+    top: 490px;
+    z-index: 1;
+}
+.Santa_Cruz{
+	position: absolute;
+    left: 388px;
+    top: 654px;
+    z-index: 1;
+    line-height: 14px;
+}
+.Yavapai{
+	position: absolute;
+    left: 220px;
+    top: 291px;
+    z-index: 1;
+}
+.Yuma{
+	position: absolute;
+    left: 88px;
+    top: 507px;
+    z-index: 1;
+}

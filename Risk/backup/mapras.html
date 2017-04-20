@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Risk Arizona - MAP</title>
+<link href="map.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div id="map" class="map">
+	<img id="a" src="images/map/APACHE.png" class="overlay"/>
+	<img id="b" src="images/map/COCHISE.png" class="overlay"/>
+	<img id="c" src="images/map/COCONINO.png" class="overlay"/>
+	<img id="d" src="images/map/GILA.png" class="overlay"/>
+	<img id="e" src="images/map/GRAHAM.png" class="overlay"/>
+	<img id="f" src="images/map/GREENLEE.png" class="overlay"/>
+	<img id="g" src="images/map/LA-PAZ.png" class="overlay"/>
+	<img id="h" src="images/map/MARICOPA.png" class="overlay"/>
+	<img id="i" src="images/map/MOHAVE.png" class="overlay"/>
+	<img id="j" src="images/map/NAVAJO.png" class="overlay"/>
+	<img id="k" src="images/map/PIMA.png" class="overlay"/>
+	<img id="l" src="images/map/PINAL.png" class="overlay"/>
+	<img id="m" src="images/map/SANTA-CRUZ.png" class="overlay"/>
+	<img id="n" src="images/map/YAVAPAI.png" class="overlay"/>
+	<img id="o" src="images/map/YUMA.png" class="overlay"/>
+	
+	<div id="0" class="apache" onmouseover="hover('a','on')" onmouseout="hover('a','off')">Apache</div>
+	<div id="1" class="cochise" onmouseover="hover('b','on')" onmouseout="hover('b','off')">Cochise</div>
+	<div id="2" class="coconino" onmouseover="hover('c','on')" onmouseout="hover('c','off')">Coconino</div>
+	<div id="3" class="gila" onmouseover="hover('d','on')" onmouseout="hover('d','off')">Gila</div>
+	<div id="4" class="graham" onmouseover="hover('e','on')" onmouseout="hover('e','off')">Graham</div>
+	<div id="5" class="greenlee" onmouseover="hover('f','on')" onmouseout="hover('f','off')">Greenlee</div>
+	<div id="6" class="la-paz" onmouseover="hover('g','on')" onmouseout="hover('g','off')">La Paz</div>
+	<div id="7" class="maricopa" onmouseover="hover('h','on')" onmouseout="hover('h','off')">Maricopa</div>
+	<div id="8" class="mohave" onmouseover="hover('i','on')" onmouseout="hover('i','off')">Mohave</div>
+	<div id="9" class="navajo" onmouseover="hover('j','on')" onmouseout="hover('j','off')">Navajo</div>
+	<div id="10" class="pima" onmouseover="hover('k','on')" onmouseout="hover('k','off')">Pima</div>
+	<div id="11" class="pinal" onmouseover="hover('l','on')" onmouseout="hover('l','off')">Pinal</div>
+	<div id="12" class="santa-cruz" onmouseover="hover('m','on')" onmouseout="hover('m','off')">Santa<br>Cruz</div>
+	<div id="13" class="yavapai" onmouseover="hover('n','on')" onmouseout="hover('n','off')">Yavapai</div>
+	<div id="14" class="yuma" onmouseover="hover('o','on')" onmouseout="hover('o','off')">Yuma</div>
+</div>
+<button id="0" value="Apache" onclick="selectCounty(id)" class="apache" >Apache</button>
+	<button id="1" value="Cochise" onclick="selectCounty(id)" class="cochise" >Cochise</button>
+	<button id="2" value="Coconino" onclick="selectCounty(id)" class="coconino" >Coconino</button>
+	<button id="3" value="Gila" onclick="selectCounty(id)" class="gila" >Gila</button>
+	<button id="4" value="Graham" onclick="selectCounty(id)" class="graham" >Graham</button>
+	<button id="5" value="Greenlee" onclick="selectCounty(id)" class="greenlee" >G<br>r<br>e<br>e<br>n<br>l<br>e<br>e</button>
+	<button id="6" value="La_Paz" onclick="selectCounty(id)" class="la-paz" >La Paz</button>
+	<button id="7" value="Maricopa" onclick="selectCounty(id)" class="maricopa" >Maricopa</button>
+	<button id="8" value="Mohave"  onclick="selectCounty(id)" class="mohave" >Mohave</button>
+	<button id="9" value="Navajo" onclick="selectCounty(id)" class="navajo" >Navajo</button>
+	<button id="10" value="Pima" onclick="selectCounty(id)" class="pima" >Pima</button>
+	<button id="11" value= "Pinal" onclick="selectCounty(id)" class="pinal" >Pinal</button>
+	<button id="12" value="Santa_Cruz" onclick="selectCounty(id)" class="santa-cruz" >Santa<br>Cruz</button>
+	<button id="13" value="Yavapai" onclick="selectCounty(id)" class="yavapai" >Yavapai</button>
+	<button id="14" value="Yuma" onclick="selectCounty(id)" class="yuma" >Yuma</button>
+	
+</body>
+<script>
+function hover(id,action){
+	var element=document.getElementById(id);
+	if(action=='on'){
+		element.style.visibility = 'visible';
+	}
+	if(action=='off'){
+		element.style.visibility = 'hidden';
+	}
+}
+</script>
+</html>
