@@ -1,0 +1,169 @@
+@CHARSET "ISO-8859-1";
+.map{	
+    width:584px;
+    height:100%;
+}
+
+.map :hover img {
+	cursor: crosshair;
+}
+.map :acitve img {
+	background-color:red;
+}
+
+.Apache{
+	position: absolute;
+    left: 502px;
+    top: 106px;
+    z-index: 1;
+}
+.Apache img{
+	width:25px; 
+	height:100%;
+}
+
+.Cochise{
+	position: absolute;
+    left: 489px;
+    top: 608px;
+    z-index: 1;
+}
+
+.Cochise img{
+	width:25px; 
+	height:100%;
+}
+
+.Coconino{
+	position: absolute;
+    left: 275px;
+    top: 143px;
+    z-index: 1;
+}
+.Coconino img{
+	width:25px; 
+	height:100%;
+}
+.Gila{
+	position: absolute;
+    left: 414px;
+    top: 401px;
+    z-index: 1;
+}
+.Gila img{
+	width:25px; 
+	height:100%;
+}
+.Graham{
+	position: absolute;
+    left: 459px;
+    top: 495px;
+    z-index: 1;
+}
+.Graham img{
+	width:25px; 
+	height:100%;
+}
+.Greenlee{
+	position: absolute;
+    left: 542px;
+    top: 445px;
+    z-index: 1;
+    text-align:right;
+    line-height: 80%;
+}
+.Greenlee img{
+	width:25px; 
+	height:100%;
+}
+.La_Paz{
+	position: absolute;
+    left: 84px;
+    top: 381px;
+    z-index: 1;
+}
+.La_Paz img{
+	width:25px; 
+	height:100%;
+}
+.Maricopa{
+	position: absolute;
+    left: 185px;
+    top: 448px;
+    z-index: 1;
+}
+.Maricopa img{
+	width:25px; 
+	height:100%;
+}
+.Mohave{
+	position: absolute;
+    left: 73px;
+    top: 177px;
+    z-index: 1;
+}
+.Mohave img{
+	width:25px; 
+	height:100%;
+}
+.Navajo{
+	position: absolute;
+    left: 421px;
+    top: 203px;
+    z-index: 1;
+    }
+.Navajo img{
+	width:25px; 
+	height:100%;
+}
+.Pima{
+	position: absolute;
+    left: 303px;
+    top: 584px;
+    z-index: 1;
+}
+.Pima img{
+	width:25px; 
+	height:100%;
+}
+.Pinal{
+	position: absolute;
+    left: 339px;
+    top: 490px;
+    z-index: 1;
+}
+.Pinal img{
+	width:25px; 
+	height:100%;
+}
+.Santa_Cruz{
+	position: absolute;
+    left: 388px;
+    top: 664px;
+    z-index: 1;
+    line-height: 14px;
+}
+.Santa_Cruz img{
+	width:25px; 
+	height:100%;
+}
+.Yavapai{
+	position: absolute;
+    left: 220px;
+    top: 291px;
+    z-index: 1;
+}
+.Yavapai img{
+	width:25px; 
+	height:100%;
+}
+.Yuma{
+	position: absolute;
+    left: 88px;
+    top: 507px;
+    z-index: 1;
+}
+.Yuma img{
+	width:25px; 
+	height:100%;
+}
