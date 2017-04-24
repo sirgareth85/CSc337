@@ -1,0 +1,108 @@
+@CHARSET "ISO-8859-1";
+.map{
+	background-image: url(images/map/az_bg.png);
+	background-position: right bottom, left top;
+    background-repeat: no-repeat, repeat;	
+    width:584px;
+    height:689px;
+}
+.overlay{
+	position: absolute;
+	z-index: 0;
+	visibility: hidden;
+	
+	-webkit-filter: blur(4px) invert(100%);
+	filter: blur(4px) invert(100%);
+}
+
+.apache{
+	position: absolute;
+    left: 512px;
+    top: 106px;
+    z-index: 1;
+}
+.cochise{
+	position: absolute;
+    left: 489px;
+    top: 608px;
+    z-index: 1;
+}
+.coconino{
+	position: absolute;
+    left: 275px;
+    top: 143px;
+    z-index: 1;
+}
+.gila{
+	position: absolute;
+    left: 414px;
+    top: 401px;
+    z-index: 1;
+}
+.graham{
+	position: absolute;
+    left: 469px;
+    top: 485px;
+    z-index: 1;
+}
+.greenlee{
+	position: absolute;
+    left: 590px;
+    top: 454px;
+    z-index: 1;
+}
+.la-paz{
+	position: absolute;
+    left: 84px;
+    top: 381px;
+    z-index: 1;
+}
+.maricopa{
+	position: absolute;
+    left: 185px;
+    top: 448px;
+    z-index: 1;
+}
+.mohave{
+	position: absolute;
+    left: 73px;
+    top: 177px;
+    z-index: 1;
+}
+.navajo{
+	position: absolute;
+    left: 441px;
+    top: 203px;
+    z-index: 1;
+    }
+.pima{
+	position: absolute;
+    left: 303px;
+    top: 584px;
+    z-index: 1;
+}
+.pinal{
+	position: absolute;
+    left: 339px;
+    top: 490px;
+    z-index: 1;
+}
+.santa-cruz{
+	position: absolute;
+    left: 388px;
+    top: 644px;
+    z-index: 1;
+    line-height: 14px;
+}
+.yavapai{
+	position: absolute;
+    left: 220px;
+    top: 291px;
+    z-index: 1;
+}
+.yuma{
+	position: absolute;
+    left: 88px;
+    top: 507px;
+    z-index: 1;
+}
