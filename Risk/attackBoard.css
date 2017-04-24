@@ -1,5 +1,7 @@
 @CHARSET "ISO-8859-1";
-
+body{
+	background-color: #804000;
+}
 
 .modal {
     display: none; /* Hidden by default */
@@ -16,14 +18,30 @@
 }
 
 .modal-content {
-	background-color:white;
+	background-color:#000000;
 	border: solid;
 	border-color: red;
 	border-radius: 15px;
 	padding:20px;
-	max-width:200px;
-	margin:200px;
+	color: green;
+	max-width:300px;
+	margin:150px;
 	width: 50%;	
+	font-family: courier;
+	font-weight: bold;
+}
+
+.modal-content button{
+	background-color: green;
+	button-style: none;
+	border-style: solid;
+	border-color: black;
+	font-family: courier;
+	font-weigth: bold;
+}
+
+.modal-content button:active{
+	background-color: #ce0000;
 }
 
 /* Tooltip container */

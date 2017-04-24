@@ -2,10 +2,40 @@
 .map{	
     width:584px;
     height:100%;
+	background-color: #804000;
+	margin:5px;
+}
+
+.playerID{
+	position: absolute;
+	top: 8px;
+	left: 60px;
+	background-color: green;
+	button-style: none;
+	border-style: solid;
+	border-color: black;
+	font-family: courier;
+	font-weight: bold;
+	margin: auto 25%;
+	padding: 0 50px;
+	float: right;
+}
+
+button{
+	background-color: green;
+	button-style: none;
+	border-style: solid;
+	border-color: black;
+	font-family: courier;
+	font-weight: bold;
+}
+
+button:active{
+	background-color: #ce0000;
 }
 
 .map :hover img {
-	cursor: crosshair;
+	cursor: pointer;
 }
 .map :acitve img {
 	background-color:red;
@@ -13,8 +43,8 @@
 
 .Apache{
 	position: absolute;
-    left: 502px;
-    top: 106px;
+    left: 532px;
+    top: 116px;
     z-index: 1;
 }
 .Apache img{
@@ -24,8 +54,8 @@
 
 .Cochise{
 	position: absolute;
-    left: 489px;
-    top: 608px;
+    left: 499px;
+    top: 618px;
     z-index: 1;
 }
 
@@ -36,8 +66,8 @@
 
 .Coconino{
 	position: absolute;
-    left: 275px;
-    top: 143px;
+    left: 285px;
+    top: 153px;
     z-index: 1;
 }
 .Coconino img{
@@ -46,8 +76,8 @@
 }
 .Gila{
 	position: absolute;
-    left: 414px;
-    top: 401px;
+    left: 424px;
+    top: 411px;
     z-index: 1;
 }
 .Gila img{
@@ -56,8 +86,8 @@
 }
 .Graham{
 	position: absolute;
-    left: 459px;
-    top: 495px;
+    left: 499px;
+    top: 505px;
     z-index: 1;
 }
 .Graham img{
@@ -66,8 +96,8 @@
 }
 .Greenlee{
 	position: absolute;
-    left: 542px;
-    top: 445px;
+    left: 552px;
+    top: 455px;
     z-index: 1;
     text-align:right;
     line-height: 80%;
@@ -78,8 +108,8 @@
 }
 .La_Paz{
 	position: absolute;
-    left: 84px;
-    top: 381px;
+    left: 94px;
+    top: 391px;
     z-index: 1;
 }
 .La_Paz img{
@@ -88,8 +118,8 @@
 }
 .Maricopa{
 	position: absolute;
-    left: 185px;
-    top: 448px;
+    left: 195px;
+    top: 458px;
     z-index: 1;
 }
 .Maricopa img{
@@ -98,8 +128,8 @@
 }
 .Mohave{
 	position: absolute;
-    left: 73px;
-    top: 177px;
+    left: 83px;
+    top: 187px;
     z-index: 1;
 }
 .Mohave img{
@@ -108,8 +138,8 @@
 }
 .Navajo{
 	position: absolute;
-    left: 421px;
-    top: 203px;
+    left: 451px;
+    top: 213px;
     z-index: 1;
     }
 .Navajo img{
@@ -118,8 +148,8 @@
 }
 .Pima{
 	position: absolute;
-    left: 303px;
-    top: 584px;
+    left: 313px;
+    top: 614px;
     z-index: 1;
 }
 .Pima img{
@@ -128,8 +158,8 @@
 }
 .Pinal{
 	position: absolute;
-    left: 339px;
-    top: 490px;
+    left: 349px;
+    top: 500px;
     z-index: 1;
 }
 .Pinal img{
@@ -138,8 +168,8 @@
 }
 .Santa_Cruz{
 	position: absolute;
-    left: 388px;
-    top: 664px;
+    left: 398px;
+    top: 674px;
     z-index: 1;
     line-height: 14px;
 }
@@ -149,8 +179,8 @@
 }
 .Yavapai{
 	position: absolute;
-    left: 220px;
-    top: 291px;
+    left: 230px;
+    top: 301px;
     z-index: 1;
 }
 .Yavapai img{
@@ -159,8 +189,8 @@
 }
 .Yuma{
 	position: absolute;
-    left: 88px;
-    top: 507px;
+    left: 98px;
+    top: 517px;
     z-index: 1;
 }
 .Yuma img{
